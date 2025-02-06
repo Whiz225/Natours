@@ -1,9 +1,7 @@
 import axios from 'axios';
-import User from '../../models/userModels';
 import { showAlert } from './alert';
 
 export const addReview = (user) => {
-  //   const user = await User.find();
   const html = `<div class="reviews__card">
           <div class="reviews__avatar">
             <img

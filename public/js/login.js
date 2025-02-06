@@ -12,11 +12,6 @@ export const login = async (email, password) => {
       },
     });
 
-    // const res = await axios.post('http://127.0.0.1:3000/api/v1/user/login', {
-    //   email,
-    //   password,
-    // });
-
     if (res.data.status === 'success') {
       showAlert('success', 'Log in successfully');
       window.setTimeout(() => {

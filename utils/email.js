@@ -43,7 +43,7 @@ class Email {
       to: this.to,
       subject,
       html,
-      // text: htmlToText.fromString(html),
+      text: htmlToText.fromString(html),
     };
 
     await this.newTransport().sendMail(mailOptions);

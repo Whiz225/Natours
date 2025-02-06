@@ -81,7 +81,6 @@ if (addReviewBtn)
       .querySelector('.reviews__card');
 
     const userObj = e.target.dataset;
-    console.log(userObj);
     const user = JSON.parse(userObj.user);
     const { tourId } = userObj;
 
