@@ -16,7 +16,7 @@ const mongoSanitize = require('express-mongo-sanitize');
 const xss = require('xss-clean');
 const hpp = require('hpp');
 const cookieParser = require('cookie-parser');
-const compression = require('compression')
+const compression = require('compression');
 
 const app = express();
 
@@ -32,7 +32,7 @@ app.use(helmet({ contentSecurityPolicy: false }));
 if (process.env.NODE_ENV === 'development') {
   app.use(morgan('dev'));
 }
-// Limit request from same API
+// Limit request from same API to prevent abuse
 const limiter = rateLimit({
   max: 100,
   windowMs: 60 * 60 * 1000,
@@ -46,6 +46,7 @@ app.use(express.urlencoded({ extended: true, limit: '10kb' }));
 app.use(cookieParser());
 app.use(mongoSanitize());
 app.use(xss());
+// Prevent duplicate parameter attacks
 app.use(
   hpp({
     whitelist: [
@@ -57,7 +58,7 @@ app.use(
   }),
 );
 
-app.use(compression())
+app.use(compression());
 
 // Text middlewave
 app.use((req, res, next) => {

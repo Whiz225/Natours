@@ -24,9 +24,13 @@ mongoose
 
 const port = process.env.PORT || 3000;
 
-const server = app.listen(port, '127.0.0.1', () => {
+const server = app.listen(port, () => {
   console.log(`App running on port ${port}...`);
 });
+
+// const server = app.listen(port, '127.0.0.1', () => {
+//   console.log(`App running on port ${port}...`);
+// });
 
 process.on('uncaughtException', (err) => {
   console.log('UNCAUGHT EXCEPTION! shutting down...');
