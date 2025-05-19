@@ -43,7 +43,8 @@ export const addNewReview = async (tour, review) => {
   try {
     const newReview = await axios({
       method: 'POST',
-      url: `http://127.0.0.1:3000/api/v1/reviews`,
+      url: `/api/v1/reviews`,
+      // url: `http://127.0.0.1:3000/api/v1/reviews`,
       data: {
         tour,
         review,
